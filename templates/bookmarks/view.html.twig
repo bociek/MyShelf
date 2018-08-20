@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block body %}
+<h1>
+    {{ 'title.bookmark_view'|trans }}
+</h1>
+{% if bookmark is defined and bookmark|length %}
+    <div>
+        {{ bookmark.title }}, {{ bookmark.url }}
+    </div>
+{% else %}
+    <div>
+        No bookmark found!
+    </div>
+{% endif %}
+
+{% endblock %}

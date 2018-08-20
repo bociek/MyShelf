@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>
+        {{ 'title.tags_list'|trans }}
+    </h1>
+    {% if paginator.data is defined and paginator.data|length %}
+        <ul>
+            {% for row in paginator.data %}
+                <li>
+                    {{ row.name }}
+                    <a href="{{ url('tags_view', {'id': row.id}) }}" title="{{ 'label.view'|trans }}">
+                    </a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>
+            {{ 'errors.empty_list'|trans }}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    MyShelf - {{ name|default('User') }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        <img src="{{ asset('/Apka/app/app/web/images/mushelf.png') }}" alt="logo" />
+    </h1>
+
+    <h3>
+        Welcome home, {{ name|default('User') }}.
+    </h3>
+    {% if users is defined and users|length %}
+        <ul>
+            {% for row in users %}
+                <li>{{ row.id }}, {{ row.username }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>
+            List is empty! We are deeply sorry for that but you just can't do it.
+        </div>
+    {% endif %}
+
+
+{% endblock %}
